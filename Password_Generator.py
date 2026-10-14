@@ -2,22 +2,36 @@
 import random
 import string
 
-print("PASSWORD GENERATOR")
+print("=" * 40)
+print("       🔐 PASSWORD GENERATOR 🔐")
+print("=" * 40)
 
-length = int(input("Enter password length: "))
+try:
+    length = int(input("👉 Enter password length: "))
 
-if length <= 0:
-    print("Please enter a positive number.")
-else:
-    letters = string.ascii_letters
-    numbers = string.digits
-    symbols = "!@#$%&*"
+    if length <= 0:
+        print("❌ Please enter a positive number.")
 
-    characters = letters + numbers + symbols
+    else:
+        letters = string.ascii_letters
+        numbers = string.digits
+        symbols = "!@#$%&*"
 
-    password = ""
+        characters = letters + numbers + symbols
 
-    for i in range(length):
-        password += random.choice(characters)
+        password = ""
 
-    print("Your password is:", password)
+        for i in range(length):
+            password += random.choice(characters)
+
+        print("\n" + "-" * 40)
+        print("✅ PASSWORD GENERATED SUCCESSFULLY!")
+        print("-" * 40)
+        print(f"🔑 Your Password: {password}")
+        print(f"📏 Password Length: {length}")
+        print("-" * 40)
+        print("🔒 Keep your password safe!")
+        print("=" * 40)
+
+except ValueError:
+    print("❌ Invalid input! Please enter a number.")
